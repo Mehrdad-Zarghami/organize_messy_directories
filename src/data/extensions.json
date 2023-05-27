@@ -1,0 +1,16 @@
+{
+    "Documents_": [".doc", ".docx", ".pdf", ".txt"],
+    "Images_": [".jpg", ".jpeg", ".png", ".gif"],
+    "Audio_": [".mp3", ".wav", ".aac", ".flac", ".wma"],
+    "Video_": [".mp4", ".avi", ".mov", ".mkv", ".wmv"],
+    "Spreadsheets_": [".xls", ".xlsx", ".csv"],
+    "Presentations_": [".ppt", ".pptx"],
+    "Compressed_": [".zip", ".rar", ".tar.gz"],
+    "Programs_": [".exe", ".dmg"],
+    "Fonts_": [".ttf", ".otf"],
+    "Web_": [".html", ".css", ".js"],
+    "Databases_": [".sql", ".db"],
+    "Reference_": [".bib", ".enw", ".ris"],
+    "Python_files_": [".py", ".ipynb"]
+  }
+  
