@@ -4,7 +4,7 @@ from pathlib import Path
 from loguru import logger
 
 from src.data import DATA_DIR
-from utils.in_out import read_json
+from src.utils.in_out import read_json
 
 
 class Organizer:
@@ -17,17 +17,16 @@ class Organizer:
         if not self.directory.exists():
             raise FileNotFoundError(f"{self.directory} does not exists.")
 
-        json_ext = read_json(DATA_DIR / "extensions.json") #--> dir:[ext1, ext2,..]
+        # Reading the json contains the extensions and destination folder for each type of extensions --> {dir:[ext1, ext2,..]...}
+        json_ext = read_json(DATA_DIR / "extensions.json") 
+        # create a dictionary in the form of {ext1:dir1, ext2:dir1, ...}
         self.file_type_destination = {}
         for dir_val, ext_keys in json_ext.items():
             for ext in ext_keys:
                 self.file_type_destination[ext] = dir_val
 
     def __call__(self):
-        """
-        This class is used to organize files in a directory by
-        moving files into directories based on their extension
-        """
+
 
         logger.info(f"Organizing files in {self.directory}...")
 
@@ -46,7 +45,7 @@ class Organizer:
 
 
                 if file_path.suffix not in self.file_type_destination:
-                    DEST_DIR = self.directory / 'others_'
+                    DEST_DIR = self.directory / 'Others_'
                 else:
                     DEST_DIR = self.directory / self.file_type_destination[file_path.suffix]
 
@@ -73,7 +72,7 @@ class Organizer:
 
 
 
-if __name__ ==  "__main__":
-    org_files = Organizer('/mnt/c/Users/Asronic/Downloads')
-    org_files()
-    logger.info("Done")
+# if __name__ ==  "__main__":
+#     org_files = Organizer("directory")
+#     org_files()
+#     logger.info("Done")
